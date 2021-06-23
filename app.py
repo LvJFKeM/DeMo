@@ -11,59 +11,88 @@ import csv, re, operator
 app = Flask(__name__)
 
 person = {
-    'first_name': 'Nohossat',
+
+    'first_name': 'LVJF',
     'last_name' : 'TRAORE',
-    'address' : '9 rue Léon Giraud · PARIS · FRANCE',
-    'job': 'Web developer',
-    'tel': '0678282923',
-    'email': 'nohossat.tra@yahoo.com',
-    'description' : 'Suite à une expérience internationale en développement web et dans le domaine des arts, l’impact de l’intelligence artificielle dans nos vies me surprend de jour en jour. \n Aujourd’hui, je souhaite changer de cap et comprendre les secrets que recèlent nos données. J’aimerais mettre à profit ces découvertes au service des entreprises/associations à dimension sociale.',
+    'address' : 'HuBei HuangShi',
+    'csdn': 'www.LvJF.com',
+    'tel': '+86 123 456 789',
+    'email': '123456124@qq.com',
+
+	'a':'湖北师范大学',
+	'b':'软件工程',
     'social_media' : [
         {
-            'link': 'https://www.facebook.com/nono',
-            'icon' : 'fa-facebook-f'
+            'link': 'Sex',
+            'icon' : 'Boy'
         },
         {
-            'link': 'https://github.com/nono',
-            'icon' : 'fa-github'
+            'link': 'DOB',
+            'icon' : '29/7/1997'
         },
         {
-            'link': 'linkedin.com/in/nono',
-            'icon' : 'fa-linkedin-in'
+            'link': 'SchoolTag',
+            'icon' : 'Hubei Normal University'
         },
         {
-            'link': 'https://twitter.com/nono',
-            'icon' : 'fa-twitter'
+            'link': 'Education',
+            'icon' : 'Undergraduate'
+        },
+		{
+            'link': 'Address',
+            'icon' : 'Hubei HuangShi Hubei Normal University'
         }
     ],
-    'img': 'img/img_nono.jpg',
+    'img': '../static/img/aq.jpg',
+
     'experiences' : [
         {
-            'title' : 'Web Developer',
-            'company': 'AZULIK',
-            'description' : 'Project manager and lead developer for several AZULIK websites.',
-            'timeframe' : 'July 2018 - November 2019'
+            'title' : 'Educational Background',
+            'description' : 'Time',
+            'timeframe1' : '2018.09-2019.01',
+            'timeframe2' : '2019.03-2022.07'
         },
         {
-            'title' : 'Freelance Web Developer',
-            'company': 'Independant',
-            'description' : 'Create Wordpress websites for small and medium companies. ',
-            'timeframe' : 'February 2017 - Present'
+			'description' : 'School--Specialty',
+			'timeframe1' : '湖北师范大学 -----计算机科学与技术专业',
+            'timeframe2' : '湖北师范大学 -----软件工程专业',
+
         },
-        {
-            'title' : 'Sharepoint Intern',
-            'company': 'ALTEN',
-            'description' : 'Help to manage a 600 Sharepoint sites platform (audit, migration to Sharepoint newer versions)',
-            'timeframe' : 'October 2015 - October 2016'
-        }
+
+		{
+			'title': 'Professional Curriculum',
+			'description': 'Correlated Curriculum',
+			'timeframe1': 'C、C++、Java、JavaWeb、Pyhton、数据库、软件测试、数据结构与算法、计算机操作系统、计算机网络、计算机组成原理',
+
+		},
+		{
+			'description': 'Unrelated Courses',
+			'timeframe1': '高等数学、线性代数、概率论与数理统计、离散数学、数学建模基础、大学物理',
+
+
+		},
+
+		{
+			'title': 'Self-evaluation',
+
+			'timeframe1': '热爱数学、有非常好的逻辑思维处理能力。对软件测试和开发有很高激情，热衷于新的知识学习。',
+			'timeframe2': '热爱软件测试工作，可以胜任重复性工作，工作细致认真、积极主动、有耐心、严谨。',
+			'timeframe3': '乐于学习，积极上进提升自我。',
+
+
+
+		},
+
+
+
     ],
     'education' : [
         {
-            'university': 'Paris Diderot',
-            'degree': 'Projets informatiques et Startégies d\'entreprise (PISE)',
-            'description' : 'Gestion de projets IT, Audit, Programmation',
-            'mention' : 'Bien',
-            'timeframe' : '2015 - 2016'
+            'university': '',
+            'degree': '',
+            'description' : '',
+            'mention' : '',
+            'timeframe' : ''
         },
         {
             'university': 'Paris Dauphine',
@@ -81,15 +110,13 @@ person = {
         }
     ],
     'programming_languages' : {
-        'HMTL' : ['fa-html5', '100'], 
-        'CSS' : ['fa-css3-alt', '100'], 
-        'SASS' : ['fa-sass', '90'], 
-        'JS' : ['fa-js-square', '90'],
-        'Wordpress' : ['fa-wordpress', '80'],
-        'Python': ['fa-python', '70'],
-        'Mongo DB' : ['fa-database', '60'],
-        'MySQL' : ['fa-database', '60'],
-        'NodeJS' : ['fa-node-js', '50']
+        'HMTL' : ['HTML / CSS /JS', '100'],
+        'MVC' : ['MVC/ JSP /Servlet /javabean', '100'],
+        'Java' : ['Java web', '90'],
+        'C' : ['C 、C++', '90'],
+        'Spring' : ['Spring /Spring5', '80'],
+        'Python': ['python', '70'],
+
     },
     'languages' : {'French' : 'Native', 'English' : 'Professional', 'Spanish' : 'Professional', 'Italian' : 'Limited Working Proficiency'},
     'interests' : ['Dance', 'Travel', 'Languages']

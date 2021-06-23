@@ -17,7 +17,7 @@
 			<div class="picture-resume-wrapper">
         <div class="picture-resume">
         <span>
-            <img src="../static/img/aq.jpg" alt="" /></span>
+            <img src="{{ person.img }}" alt="" /></span>
         <svg version="1.1" viewBox="0 0 350 350">
 
   <defs>
@@ -50,7 +50,7 @@
          <div class="clearfix"></div>
  </div>
       <div class="name-wrapper">
-        <h1>LVJF</h1><!-- YOUR NAME AND LAST NAME  -->
+        <h1>{{ person.first_name }}</h1><!-- YOUR NAME AND LAST NAME  -->
       </div>
       <div class="clearfix"></div>
       <div class="contact-info clearfix">
@@ -61,30 +61,30 @@
       		<li>Home</li>
       	</ul>
         <ul class="list-content ">
-        	<li>+86 123 456 789</li> <!-- YOUR PHONE NUMBER  -->
-        	<li>123456124@qq.com</li> <!-- YOUR EMAIL -->
-        	<li><a href="#">www.LvJF.com</a></li> <!-- YOUR WEBSITE  -->
-            <li>HuBei HuangShi</li>
+        	<li>{{ person.tel }}</li> <!-- YOUR PHONE NUMBER  -->
+        	<li>{{ person.mail }}</li> <!-- YOUR EMAIL -->
+        	<li><a href="#">{{ person.csdn }}</a></li> <!-- YOUR WEBSITE  -->
+            <li>{{ person.address }}</li>
         </ul>
       </div>
       <div class="contact-presentation"> <!-- YOUR PRESENTATION RESUME  -->
-      	<p><span class="bold">School</span> 湖北师范大学 </p>
-          <p><span class="bold">Specialty</span> 软件工程 </p>
+      	<p><span class="bold">School</span> {{ person.a }} </p>
+          <p><span class="bold">Specialty</span> {{ person.b }} </p>
       </div>
       <div class="contact-social clearfix">
       	<ul class="list-titles">
-            <li>Sex</li><!-- 性别-->
-      		<li>DOB</li><!-- 出生日期-->
-      		<li>SchoolTag</li><!-- 学校-->
-      		<li>Education</li><!-- 学历-->
-            <li>Address</li><!-- 住址-->
+            <li>{{ person.social_media[0].link }}</li><!-- 性别-->
+      		<li>{{ person.social_media[1].link }}</li><!-- 出生日期-->
+      		<li>{{ person.social_media[2].link }}</li><!-- 学校-->
+      		<li>{{ person.social_media[3].link }}</li><!-- 学历-->
+            <li>{{ person.social_media[4].link }}</li><!-- 住址-->
       	</ul>
         <ul class="list-content"> <!-- REMEMBER TO PUT THE URL ON THE HREF TAG  -->
-      		<li><a href=""></a>Boy</li> <!-- YOUR TWITTER USER  -->
-      		<li><a href="">29/7/1997</a></li> <!-- YOUR DRIBBBLE USER  -->
-      		<li><a href="">Hubei Normal University</a></li> <!-- YOUR BEHANCE USER  -->
-      	    <li><a href="">Undergraduate</a></li>
-            <li><a href="">Hubei HuangShi Hubei Normal University</a></li>
+      		<li><a href=""></a>{{ person.social_media[0].icon }}</li> <!-- YOUR TWITTER USER  -->
+      		<li><a href="">{{ person.social_media[1].icon }}</a></li> <!-- YOUR DRIBBBLE USER  -->
+      		<li><a href="">{{ person.social_media[2].icon }}</a></li> <!-- YOUR BEHANCE USER  -->
+      	    <li><a href="">{{ person.social_media[3].icon }}</a></li>
+            <li><a href="">{{ person.social_media[4].icon }}</a></li>
 
         </ul>
       </div>
@@ -94,60 +94,70 @@
   <section class="experience section-padding">
 
   	<div class="container">
-  		<h3 class="experience-title">Educational Background</h3>
+  		<h3 class="experience-title">{{ person.experiences[0].title }}</h3>
 
       <div class="experience-wrapper">
       	<div class="company-wrapper clearfix">
-      		<div class="experience-title">Time</div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
-          <div class="time">2018.09-2019.01</div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
-      	  <div class="time">2019.03-2022.07</div>
+      		<div class="experience-title">{{ person.experiences[0].description }} </div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
+          <div class="time"> {{ person.experiences[0].timeframe1 }}</div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
+      	  <div class="time">{{ person.experiences[0].timeframe2 }} </div>
         </div>
 
         <div class="job-wrapper clearfix">
-        	<div class="experience-title">School--Specialty  </div> <!-- JOB TITLE  -->
+        	<div class="experience-title"> {{ person.experiences[1].description }} </div> <!-- JOB TITLE  -->
           <div class="company-description">
-          	<p> 湖北师范大学 -----计算机科学与技术专业</p><p> 湖北师范大学 -----软件工程专业</p><!-- JOB DESCRIPTION  -->
+          	<p>{{ person.experiences[1].timeframe1 }} </p>
+              <p>{{ person.experiences[1].timeframe2 }}</p><!-- JOB DESCRIPTION  -->
           </div>
         </div>
      </div>
 
 
     <div class="container">
-      <h3 class="experience-title">Professional Curriculum </h3>
+      <h3 class="experience-title">{{ person.experiences[2].title }} </h3>
         <div class="experience-wrapper">
         <div class="company-wrapper clearfix">
-            <div class="experience-title">Correlated Curriculum</div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
+            <div class="experience-title">{{ person.experiences[2].description }}</div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
         <div class="time">
-           <p>C、C++、Java、JavaWeb、Pyhton、数据库、软件测试、数据结构与算法、计算机操作系统、计算机网络、计算机组成原理</p>
+           <p>{{ person.experiences[2].timeframe1 }}</p>
         </div>
         </div>
 
         <div class="job-wrapper clearfix">
-            <div class="experience-title">Unrelated Courses</div> <!-- JOB TITLE  -->
+            <div class="experience-title">{{ person.experiences[3].description }}</div> <!-- JOB TITLE  -->
           <div class="company-description">
-            <p> 高等数学、线性代数、概率论与数理统计、离散数学、数学建模基础、大学物理</p>
+            <p>{{ person.experiences[3].timeframe1 }}</p>
           </div>
         </div>
     </div>
-     <div>
-          <div class="section-wrapper clearfix">
-            <h3 class="section-title">Skills</h3>  <!-- YOUR SET OF SKILLS  -->
-                <ul>
-                    <li class="skill-percentage">HTML / CSS /JS</li>
-                    <li class="skill-percentage">MVC/ JSP /Servlet /javabean</li>
-                    <li class="skill-percentage">Java web</li>
-                    <li class="skill-percentage">C 、C++</li>
-                    <li class="skill-percentage">Spring /Spring5</li>
-                    <li class="skill-percentage">python</li>
+{#     <div>#}
+{#          <div class="section-wrapper clearfix">#}
+{#            <h3 class="section-title">Skills</h3>  <!-- YOUR SET OF SKILLS  -->#}
+{#                <ul>#}
+{#                    <li class="skill-percentage">{{ person.programming_languages.HTML[0] }}</li>#}
+{#                    <li class="skill-percentage">{{ person.programming_languages.MVC[0] }}</li>#}
+{#                    <li class="skill-percentage">{{ person.programming_languages.Java[0] }}</li>#}
+{#                    <li class="skill-percentage">{{ person.programming_languages.C[0]}}</li>#}
+{#                    <li class="skill-percentage">{{ person.programming_languages.Spring[0] }}</li>#}
+{#                    <li class="skill-percentage">{{ person.programming_languages.Python[0] }}</li>#}
+{##}
+{#                </ul>#}
+{#          </div>#}
+{#    </div>#}
+        <div class="section-wrapper clearfix">
+      	<h3 class="section-title">个人技能</h3>  <!-- YOUR SET OF SKILLS  -->
+        	<ul>
+                {% for lang, details in person.programming_languages.items() %}
+        		<li class="skill-percentage" >{{ lang }}
+                {% endfor %}
+        	</ul>
 
-                </ul>
-          </div>
-    </div>
+      </div>
       <div class="section-wrapper clearfix">
-          <h3 class="section-title">Self-evaluation</h3>  <!-- DESCRIPTION OF YOUR HOBBIES -->
-          <p> 热爱数学、有非常好的逻辑思维处理能力。对软件测试和开发有很高激情，热衷于新的知识学习。</p>
-          <p> 热爱软件测试工作，可以胜任重复性工作，工作细致认真、积极主动、有耐心、严谨。</p>
-          <p> 乐于学习，积极上进提升自我。</p>
+          <h3 class="section-title">{{ person.experiences[4].title }}</h3>  <!-- DESCRIPTION OF YOUR HOBBIES -->
+          <p>{{ person.experiences[4].timeframe1 }}</p>
+          <p> {{ person.experiences[4].timeframe2 }}</p>
+          <p> {{ person.experiences[4].timeframe3 }}</p>
        </div>
 
 
