@@ -19,8 +19,6 @@ person = {
     'tel': '+86 123 456 789',
     'email': '123456124@qq.com',
 
-	'a':'湖北师范大学',
-	'b':'软件工程',
     'social_media' : [
         {
             'link': 'Sex',
@@ -47,39 +45,39 @@ person = {
 
     'experiences' : [
         {
-            'title' : 'Educational Background',
-            'description' : 'Time',
+            'title' : '教育经历',
+            'description' : '时间',
             'timeframe1' : '2018.09-2019.01',
             'timeframe2' : '2019.03-2022.07'
         },
         {
-			'description' : 'School--Specialty',
+			'description' : '学校----专业',
 			'timeframe1' : '湖北师范大学 -----计算机科学与技术专业',
             'timeframe2' : '湖北师范大学 -----软件工程专业',
 
         },
 
 		{
-			'title': 'Professional Curriculum',
-			'description': 'Correlated Curriculum',
+			'title': '主要课程',
+			'description': '软件相关课程',
 			'timeframe1': 'C、C++、Java、JavaWeb、Pyhton、数据库、软件测试、数据结构与算法、计算机操作系统、计算机网络、计算机组成原理',
 
 		},
 		{
-			'description': 'Unrelated Courses',
+			'description': '数学相关课程',
 			'timeframe1': '高等数学、线性代数、概率论与数理统计、离散数学、数学建模基础、大学物理',
 
 
 		},
 
 		{
-			'title': 'Self-evaluation',
+		    'title': 'Self-evaluation:    ',
 
-			'timeframe1': '热爱数学、有非常好的逻辑思维处理能力。对软件测试和开发有很高激情，热衷于新的知识学习。',
-			'timeframe2': '热爱软件测试工作，可以胜任重复性工作，工作细致认真、积极主动、有耐心、严谨。',
-			'timeframe3': '乐于学习，积极上进提升自我。',
-
-
+			'timeframe':
+				['热爱数学、有非常好的逻辑思维处理能力。',
+				 '对软件测试和开发有很高激情，热衷于新的知识学习。',
+		        '热爱软件测试工作，可以胜任重复性工作，工作细致认真、积极主动、有耐心、严谨。',
+			    '乐于学习，积极上进提升自我。']
 
 		},
 
@@ -118,33 +116,57 @@ person = {
         'Python': ['python', '70'],
 
     },
+	'programming_languages1_name' :'个人技能',
+	'programming_languages1' :
+		['1、熟悉软件测试理论知识，了解软件测试相关的黑白盒测试技术、等价类分析法，熟悉UML。',
+		 '2、了解计算机基础知识，如操作系统底层，计算机组成原理、计算机网络等基础知识。',
+		 '3、熟练使用C语言和C++基础。',
+		 '4、熟悉Python基础、会常规的Python爬虫技术。',
+		 '5、熟练使用Java,对java的基础使用。',
+		 '6、熟悉javaweb,可以熟练使用HTML、CSS等等前端技术',
+		 '7、熟悉javaweb,可以熟练使用HTML、CSS等等前端技术',
+		 '8、掌握web开发框架MVC、Spring5框架。'
+],
+
+
+
     'languages' : {'French' : 'Native', 'English' : 'Professional', 'Spanish' : 'Professional', 'Italian' : 'Limited Working Proficiency'},
     'interests' : ['Dance', 'Travel', 'Languages']
 }
-
+# 1
 @app.route('/')
 def cv(person=person):
     return render_template('index.html', person=person)
 
 
-
-
 @app.route('/callback', methods=['POST', 'GET'])
 def cb():
 	return gm(request.args.get('data'))
-   
+
+##入口
 @app.route('/chart')
 def index():
-	return render_template('chartsajax.html',  graphJSON=gm())
+	##1、各个国家GDP
+	#return render_template('chartsajax.html',  graphJSON=gm())
 
+	##2、某高地密度等高线
+	return render_template('dgx.html',  graphJSON=gm2())
+
+##国家GDP
 def gm(country='United Kingdom'):
 	df = pd.DataFrame(px.data.gapminder())
-
 	fig = px.line(df[df['country']==country], x="year", y="gdpPercap")
 
 	graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 	return graphJSON
 
+##等高线
+def gm2():
+	df = px.data.iris()
+	fig = px.density_contour(df, x="sepal_width", y="sepal_length")
+
+	graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+	return graphJSON
 
 @app.route('/senti')
 def main():
