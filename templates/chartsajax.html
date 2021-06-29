@@ -17,20 +17,106 @@
 </head>
 
 <body style="font-family:arial, sans-serif">
+    <div>
+        <ol>
+             <li><h2>简单散点图</h2></li>
+             <li><h2>密度等值线图</h2></li>
+             <li><h2>折线图</h2></li>
+             <li> <h2>直方图</h2></li>
 
-    <h1>1952-2007年的各国GDP可视化</h1>
-    <h2>输入国家如：India或China（大写字母开头）</h2>
-    <input type="text" id="fname" name="fname" onchange="cb(this.value)">
-    <div id="chart" class="chart"></div>
+             <li><h2>饼状图图</h2></li>
+             <li><h2>极坐标线条图</h2></li>
+             <li><h2>三元散点图</h2></li>
+             <li><h2>散点图</h2></li>
 
-    <h2>某高地密度等高线可视化</h2>
-    <div id="chart1" class="chart1"></div>
+             <li><h2>密度热力图</h2></li>
+             <li><h2>气泡图</h2></li>
+             <li><h2>词云图</h2></li>
+             <li><h2>条形图</h2></li>
 
-
-    <h2>2345678</h2>
-    <div id="chart2" class="chart2">
-        <iframe src="../static/html/test.html" width=100% height=800px scrolling="no" frameborder="no" border="0" allowtransparency="true" ></iframe>
+        </ol>
     </div>
+    <div>
+        <ul>
+            <li>
+                <h1>简单散点图</h1>
+                <h2>不同种类的花</h2>
+                <div id="chart" class="chart"></div>
+            </li>
+            <li>
+                <h2>密度等值线图</h2>
+                 <h2>某高地在不同地方的高度的密度等高线可视化</h2>
+                 <div id="chart1" class="chart1"></div>
+            </li>
+            <li>
+                <h2>折线图</h2>
+                 <h2>统计每个品牌下的评论句的长度分布其中横轴为句子长度。</h2>
+                 <div id="chart2" class="chart2"></div>
+            </li>
+            <li>
+                <h2>直方图</h2>
+                 <h2>统计所有的品牌的评论句的长度分布其中横轴为句子长度。</h2>
+                 <div id="chart3" class="chart3"></div>
+            </li>
+            <li>
+                <h2>饼状图图</h2>
+                 <h2>01/22/2020 12:00:00中国地区的有无感染者的地区或者省的占比</h2>
+                 <div id="chart4" class="chart4"></div>
+            </li>
+             <li>
+                 <h2>极坐标线条图</h2>
+                 <h2>风力等级：方向、强度、数值</h2>
+                 <div id="chart5" class="chart5"></div>
+            </li>
+             <li>
+                 <h2>三元散点图</h2>
+                 <h2>2013年蒙特利尔市长选举投票结果。包括字段：区域、Coderre票数、Bergeron票数、Joly票数、总票数、胜者、结果(占比分类),</h2>
+                 <div id="chart6" class="chart6"></div>
+            </li>
+            <li>
+                 <h2>散点图</h2>
+                 <h2>分别在图表的上方、右侧增加箱形图、小提琴图，并添加趋势线</h2>
+                 <div id="chart7" class="chart7"></div>
+            </li>
+            <li>
+                 <h2>密度热力图</h2>
+                 <h2></h2>
+                 <div id="chart8" class="chart8"></div>
+            </li>
+            <li>
+                 <h2>气泡图</h2>
+                 <h2></h2>
+                 <div id="chart9" class="chart9">
+                     <iframe src="../static/html/test1.html" width=100% height=600px scrolling="no" frameborder="no" border="0" allowtransparency="true" ></iframe>
+                 </div>
+            </li>
+
+
+             <li style="height: 500px">
+                 <h2>词云图</h2>
+                 <h2>统计所有的品牌的评论句的词云图</h2>
+                 <div id="chart11" class="chart11" style="margin: 0 auto;text-align: center;padding-top: 40px">
+                     <div>
+                         <img src="../static/img/1.png" alt="词云图"/>
+                         <img src="../static/img/2.png" alt="词云图"/>
+                     </div>
+                     <div>
+                         <img src="../static/img/3.png" alt="词云图"/>
+                         <img src="../static/img/4.png" alt="词云图"/>
+                     </div>
+                 </div>
+            </li>
+            <li>
+                <h2>条形图</h2>
+                 <h2>世界各国人口在两个不同时间的人口量</h2>
+                 <div id="chart12" class="chart12" >
+                    <iframe src="../static/html/test.html" width=100% height=600px scrolling="no" frameborder="no" border="0" allowtransparency="true" ></iframe>
+                 </div>
+            </li>
+        </ul>
+    </div>
+
+
 </body>
 
 <script>
@@ -39,5 +125,30 @@
 
      d1 = {{ graphJSON1 | safe }};
     Plotly.newPlot('chart1', d1, {});
+
+     d2 = {{ graphJSON2 | safe }};
+    Plotly.newPlot('chart2', d2, {});
+
+    d3 = {{ graphJSON3 | safe }};
+    Plotly.newPlot('chart3', d3, {});
+
+    d4 = {{ graphJSON4 | safe }};
+    Plotly.newPlot('chart4', d4, {});
+    {##}
+    d5 = {{ graphJSON5 | safe }};
+    Plotly.newPlot('chart5', d5, {});
+
+    d6 = {{ graphJSON6 | safe }};
+    Plotly.newPlot('chart6', d6, {});
+    
+    d7 = {{ graphJSON7 | safe }};
+    Plotly.newPlot('chart7', d7, {});
+
+    d8 = {{ graphJSON8 | safe }};
+    Plotly.newPlot('chart8', d8, {});
+
+
+
+
 </script>
 </html>
