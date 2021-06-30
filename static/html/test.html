@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/jquery-3.5.1.js"></script>
+
+</head>
+<body>
+    <div id="main" style="height: 800px"></div>
+</body>
+   <script>
+        var etest=echarts.init(document.getElementById("main"));
+        option = {
+            title: {
+                text: '世界人口总量',
+                subtext: '数据来自真实网站'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['2010年', '2020年']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                type: 'category',
+                data: ['英国', '法国', '美国','日本', '印度', '中国', '世界人口(万)']
+            },
+            series: [
+                {
+                    name: '2010年',
+                    type: 'bar',
+                    data: [6276, 6502, 29034, 12807, 123428, 134091, 630230]
+                },
+                {
+                    name: '2020年',
+                    type: 'bar',
+                    data: [6783, 6735, 31000, 12626,137543, 141148, 758520]
+                }
+            ]
+        };
+        etest.setOption(option);
+    </script>
+
+
+</html>
